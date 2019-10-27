@@ -14,7 +14,7 @@ The Fron-End application can be found at [https://github.com/rmit-s3530196-avtar
   - React 16
   - Redux 4
   - Material UI & Bootstrap
-  - axios API for REST requests
+  - axios for REST API requests
 
 ## Scripts
 ### ``` mvn install ```
