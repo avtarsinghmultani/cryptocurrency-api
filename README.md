@@ -10,6 +10,7 @@ The Fron-End application can be found at [https://github.com/rmit-s3530196-avtar
   - Hibernate & JPA
   - REST based API
   - h2 for data storage
+  - jUnit for testing
 - Client
   - React 16
   - Redux 4
