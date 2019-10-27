@@ -17,6 +17,7 @@ The Fron-End application can be found at [https://github.com/rmit-s3530196-avtar
   - axios for REST API requests
 
 ## Scripts
+In the project directory, you can run:
 ### ``` mvn install ```
 When first cloning the repo or adding new dependencies, run this command. This will:
 - Install dependencies from pom.xml
