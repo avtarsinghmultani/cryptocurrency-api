@@ -23,6 +23,7 @@ When first cloning the repo or adding new dependencies, run this command. This w
 ### ``` mvn spring-boot:run ```
 To start the app, run this command. This will:
 - start the web server on https://localhost:8080
+- navigate to http://localhost:8080/currency/all to view all currencies and http://localhost:8080/currency/views for Currency Analysis.
 
 ## Setup
 ### Build and run your code in Visual Studio
