@@ -9,6 +9,7 @@ import com.example.cryptocurrencyapi.cryptocurrencyapi.exception.GenerateCurrenc
 import com.example.cryptocurrencyapi.cryptocurrencyapi.exception.GetCurrencyFailureException;
 import com.example.cryptocurrencyapi.cryptocurrencyapi.exception.GetCurrencyViewFailureException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -17,6 +18,7 @@ import java.util.*;
 
 @Service
 @RequiredArgsConstructor
+@Log4j2
 public class CurrencyServiceImpl implements CurrencyService {
 
     private final CurrencyClient currencyClient;
@@ -26,9 +28,11 @@ public class CurrencyServiceImpl implements CurrencyService {
         List<Currency> list;
         try{
             list = currencyClient.retrieveCurrencies();
+            log.info("Successfully retrieved Currencies.");
         }
         catch (Exception e)
         {
+            log.error("Failed to retrieve currencies due to: "+ e.getMessage());
             throw new GetCurrencyFailureException();
         }
         return list;
@@ -41,14 +45,17 @@ public class CurrencyServiceImpl implements CurrencyService {
         List<CurrencyView> currencyViews;
         try {
             currencyList = currencyClient.retrieveCurrencies();
+            log.info("Successfully retrieved Currency Views");
         } catch (Exception e)
         {
+            log.error("Failed to retrieve currencie analysis due to :" + e.getMessage());
             throw new GetCurrencyFailureException();
         }
         try{
             currencyViews = getCurrencyViews(currencyList);
         } catch (Exception e)
         {
+            log.error("Failed to retrieve currency analysis due to: "+ e.getMessage());
             throw new GetCurrencyViewFailureException();
         }
 
@@ -66,8 +73,8 @@ public class CurrencyServiceImpl implements CurrencyService {
             CurrencyView currencyView;
             try{
                 currencyView = getCurrencyView(iterator.next());
-
             } catch (Exception e){
+                log.error("Failed to retrieve currency Analysis due to: "+ e.getMessage());
                 throw new GenerateCurrencyViewException();
             }
             currencyViews.add(currencyView);
