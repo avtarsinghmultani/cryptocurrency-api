@@ -26,7 +26,9 @@ When first cloning the repo or adding new dependencies, run this command. This w
 To start the app, run this command. This will:
 - start the web server on https://localhost:8080
 - navigate to http://localhost:8080/currency/all to view all currencies and http://localhost:8080/currency/views for Currency Analysis.
-
+### ``` mvn test ```
+To run only test cases, run this command. This will:
+- Run all the test cases from all test classes.
 ## Setup
 ### Build and run your code in Visual Studio
 1. To build your project, choose Build Solution from the Build menu. The Output window shows the results of the build process.
